@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:suave="clr-namespace:SuaveControls.MaterialForms;assembly=SuaveControls.MaterialForms"
+    Title="Login"
+    x:Class="modules.Views.LoginPage">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="MainWrapperLayout"
+            BackgroundColor="White">
+            <Image
+                x:Name="MainImage"
+                AbsoluteLayout.LayoutBounds="0,0,1,240"
+                AbsoluteLayout.LayoutFlags="WidthProportional"
+                Source="loginbackground.jpg"
+                Aspect="AspectFill" />
+            <StackLayout
+                x:Name="MainPlaceholder"
+                AbsoluteLayout.LayoutBounds="0, 170, 1, 1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                Spacing="0">
+                <skia:SKCanvasView
+                    x:Name="SkiaObject"
+                    HeightRequest="70"
+                    PaintSurface="OnCanvasViewPaintSurface" />
+                <Grid
+                    x:Name="MainControlsWrapper"
+                    Margin="40"
+                    RowSpacing="20">
+                    <suave:MaterialEntry
+                        x:Name="UserEntry"
+                        Grid.Row="0"
+                        Placeholder="Usuário"
+                        Text="{Binding UserLogin}"
+                        Keyboard="Email"
+                        AccentColor="Red" />
+                    <suave:MaterialEntry
+                        x:Name="PasswordEntry"
+                        Text="{Binding UserPassword}"
+                        IsPassword="true"
+                        Grid.Row="1"
+                        Placeholder="Senha"
+                        Keyboard="Email"
+                        AccentColor="Red" />
+                    <suave:MaterialButton
+                        Grid.Row="4"
+                        x:Name="LoginButton"
+                        Style="{StaticResource btnInactiveLogon}"
+                        Command="{Binding ConfirmLoginCommand}"
+                        Text="ENTRAR"
+                        Elevation="1"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        BorderRadius="0">
+                        <Button.Triggers>
+                            <Trigger
+                                TargetType="Button"
+                                Property="IsEnabled"
+                                Value="True">
+                                <Setter
+                                    Property="Style"
+                                    Value="{StaticResource btnActiveLogon}" />
+                            </Trigger>
+                        </Button.Triggers>
+                    </suave:MaterialButton>
+                </Grid>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseDataTemplate
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:modules.DataTemplates;assembly=modules"
+    x:Name="root"
+    x:Class="modules.DataTemplates.DashboardTemplate.DashboardEnabledTemplate">
+    <Grid
+        Margin="2"
+        Padding="3"
+        x:Name="MainWrapper">
+        <BoxView
+            x:Name="boxView"
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            BackgroundColor="#AE0001">
+        </BoxView>
+        <Label
+            x:Name="icon"
+            Grid.Row="1"
+            Text="{Binding Icon}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            StyleClass="iconDashboard" />
+        <Label
+            x:Name="title"
+            Grid.Row="2"
+            Text="{Binding Name}"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            StyleClass="titleDashboard" />
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer
+                Command="{Binding ParentBindingContext.OpenCardCommand, Source={x:Reference root}}"
+                CommandParameter="{Binding CommandParameter, Source={x:Reference root}}" />
+        </Grid.GestureRecognizers>
+    </Grid>
+</local:BaseDataTemplate>

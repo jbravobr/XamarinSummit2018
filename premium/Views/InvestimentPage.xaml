@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    xmlns:local="clr-namespace:premium.Views;assembly=premium"
+    Title="Investimentos"
+    x:Name="root"
+    x:Class="premium.Views.InvestimentPage">
+    <ContentPage.Content>
+        <StackLayout
+            x:Name="stack"
+            Margin="50"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <Label
+                Text="Saldo Atual"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                FontSize="Large">
+            </Label>
+            <Label
+                Text="{Binding Balance}"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                FontSize="Large"
+                TextColor="Green" />
+            <chart:SfChart
+                x:Name="Chart"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <chart:SfChart.Legend>
+                    <chart:ChartLegend
+                        IconHeight="14"
+                        IconWidth="14"
+                        OverflowMode="Wrap"
+                        DockPosition="Top">
+                    </chart:ChartLegend>
+                </chart:SfChart.Legend>
+                <chart:SfChart.Series>
+                    <chart:PieSeries
+                        StartAngle="-90"
+                        EndAngle="270"
+                        ItemsSource="{Binding PieSeriesData}"
+                        XBindingPath="Month"
+                        YBindingPath="Value"
+                        EnableAnimation="true"
+                        LegendIcon="Circle"
+                        StrokeWidth="1"
+                        StrokeColor="White">
+                        <chart:PieSeries.ColorModel>
+                            <chart:ChartColorModel
+                                Palette="Natural" />
+                        </chart:PieSeries.ColorModel>
+                        <chart:PieSeries.DataMarker>
+                            <chart:ChartDataMarker
+                                ShowLabel="True">
+                                <chart:ChartDataMarker.LabelStyle>
+                                    <chart:DataMarkerLabelStyle
+                                        LabelFormat="#' R$'"
+                                        FontFamily="Poppins-Regular"
+                                        FontSize="9">
+                                    </chart:DataMarkerLabelStyle>
+                                </chart:ChartDataMarker.LabelStyle>
+                            </chart:ChartDataMarker>
+                        </chart:PieSeries.DataMarker>
+                    </chart:PieSeries>
+                </chart:SfChart.Series>
+            </chart:SfChart>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

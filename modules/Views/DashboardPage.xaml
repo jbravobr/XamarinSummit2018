@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:modules.DataTemplates.DashboardTemplate;assembly=modules"
+    xmlns:converters="clr-namespace:modules.Converters;assembly=modules"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="Home"
+    x:Name="root"
+    x:Class="modules.Views.DashboardPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DashboardTemplateSelector
+                x:Key="DashboardTemplateSelector">
+            </local:DashboardTemplateSelector>
+            <converters:InverseBooleanConverter
+                x:Key="InverseBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            x:Name="stack"
+            Padding="20">
+            <busyindicator:SfBusyIndicator
+                x:Name="busyIndicator"
+                Margin="100"
+                AnimationType="SingleCircle"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding IsBusy}"
+                IsBusy="{Binding IsBusy, Mode=TwoWay}"
+                TextColor="#AE0001"
+                ViewBoxWidth="70"
+                ViewBoxHeight="70" />
+            <syncfusion:SfListView
+                IsVisible="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
+                ItemSize="200"
+                SelectionMode="None"
+                x:Name="listView"
+                ItemTemplate="{StaticResource DashboardTemplateSelector}"
+                ItemsSource="{Binding Menus}">
+                <syncfusion:SfListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        EventArgsParameterPath="Item"
+                        Command="{Binding OpenInvestmentsCommand,Source={x:Reference listView}}" />
+                </syncfusion:SfListView.Behaviors>
+                <syncfusion:SfListView.LayoutManager>
+                    <syncfusion:GridLayout
+                        SpanCount="2" />
+                </syncfusion:SfListView.LayoutManager>
+            </syncfusion:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

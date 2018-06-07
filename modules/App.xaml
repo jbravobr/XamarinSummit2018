@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication
+    xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="modules.App">
+    <prism:PrismApplication.Resources>
+        <StyleSheet
+            Source="Styles/default.css" />
+        <!-- BOTAO LOGIN ATIVO -->
+        <Style
+            x:Key="btnActiveLogon"
+            TargetType="Button">
+            <Setter
+                Property="BackgroundColor"
+                Value="#AE0001" />
+            <Setter
+                Property="TextColor"
+                Value="#FFFFFF" />
+            <Setter
+                Property="MinimumWidthRequest"
+                Value="300" />
+        </Style>
+        <!-- BOTAO LOGIN INATIVO -->
+        <Style
+            x:Key="btnInactiveLogon"
+            TargetType="Button">
+           <Setter
+                Property="BackgroundColor"
+                Value="#CCCCCC" />
+            <Setter
+                Property="TextColor"
+                Value="#FFFFFF" />
+            <Setter
+                Property="MinimumWidthRequest"
+                Value="300" />
+        </Style>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>

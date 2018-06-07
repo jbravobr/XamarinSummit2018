@@ -1,0 +1,35 @@
+﻿entry {
+  font-family: Poppins-Regular;
+}
+
+button {
+  font-family: Poppins-Regular;
+}
+
+label {
+  font-family: Poppins-Regular;
+}
+
+.loginButton {
+  background-color: #AE0001;
+  color: #FFFFFF;
+  min-width: 300;
+}
+
+.loginButtonDisabled {
+  background-color: #CCCCCC;
+  color: #FFFFFF;
+  min-width: 300;
+}
+
+.iconDashboard {
+  color: #FFFFFF;
+  font-size: 25;
+  font-family: FontAwesome;
+}
+
+.titleDashboard {
+  color: #FFFFFF;
+  font-size: 16;
+  font-family: Poppins-Regular;
+}

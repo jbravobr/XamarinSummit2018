@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.469394-pre1" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.135-pre" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.1" />
+    <PackageReference Include="SkiaSharp" Version="1.60.1" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.60.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.1.823" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.1.823" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.1.823" />
+    <PackageReference Include="MaterialFormControls" Version="2018.2.22-pre1" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Styles\" />
+    <Folder Include="DataTemplates\" />
+    <Folder Include="DataTemplates\DashboardTemplate\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\premium\premium.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Syncfusion.DataSource.Portable">
+      <HintPath>..\..\..\Documents\Syncfusion\16.1.0.32\Xamarin\lib\pcl\Syncfusion.DataSource.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.XForms">
+      <HintPath>..\..\..\Documents\Syncfusion\16.1.0.32\Xamarin\lib\pcl\Syncfusion.Core.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.Portable">
+      <HintPath>..\..\..\Documents\Syncfusion\16.1.0.32\Xamarin\lib\pcl\Syncfusion.GridCommon.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms">
+      <HintPath>..\..\..\Documents\Syncfusion\16.1.0.32\Xamarin\lib\pcl\Syncfusion.SfListView.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.XForms">
+      <HintPath>..\..\..\Documents\Syncfusion\16.1.0.32\Xamarin\lib\pcl\Syncfusion.SfBusyIndicator.XForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
